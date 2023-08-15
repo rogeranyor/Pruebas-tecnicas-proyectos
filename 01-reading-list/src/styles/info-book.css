@@ -1,0 +1,144 @@
+.info-no-book {
+    display: flex;
+    color: white;
+    width: 50%;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-left: 3px solid white;
+}
+
+
+.info-book {
+    display: flex;
+    color: white;
+    width: 50%;
+    border-left: 3px solid white;
+    flex-direction: column;
+    justify-content: center;
+
+
+}
+
+.description-book {
+    flex-basis: 0;
+    flex-grow: 0.9;
+}
+
+@keyframes slideAndScale {
+    0% {
+        transform: translateX(-100%) scale(0.5);
+    }
+
+    25% {
+        transform: translateX(-75%) scale(0.6);
+    }
+
+    50% {
+        transform: translateX(-50%) scale(0.7);
+    }
+
+    75% {
+        transform: translateX(-25%) scale(0.9);
+    }
+
+    100% {
+        transform: translateX(0) scale(1);
+    }
+}
+
+.animated-image {
+    animation: slideAndScale 0.5s ease-in;
+}
+
+@keyframes slideUP {
+    0% {
+        transform: translateY(100%);
+    }
+
+    25% {
+        transform: translateY(75%);
+    }
+
+    50% {
+        transform: translateY(50%);
+    }
+
+    75% {
+        transform: translateY(25%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.animated-text {
+    animation: slideUP 0.5s ease-in;
+}
+
+.section-cover {
+    display: flex;
+    height: 80%;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+}
+
+.info-book-aside {
+    width: 20vw;
+    text-align: initial;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
+}
+
+@media screen and (max-width:1728px) {
+    .grid-container {
+        justify-content: center !important;
+
+    }
+
+    .info-book-aside {
+        height: 65% !important;
+        justify-content: space-evenly;
+
+    }
+
+    .description-book {
+        flex-basis: 0;
+        flex-grow: 0;
+    }
+
+    .section-cover {
+        height: 80% !important;
+    }
+
+    .info-book-text {
+        font-size: clamp(16px, 1.2vw, 2rem) !important;
+    }
+}
+
+@media screen and (max-width:1176px) {
+    .info-book-aside {
+        height: 65% !important;
+        justify-content: space-evenly;
+
+    }
+
+    .description-book {
+        flex-basis: 0;
+        flex-grow: 0;
+    }
+
+    .section-cover {
+        height: 55% !important;
+        flex-direction: column;
+    }
+
+    .info-book-text {
+        font-size: clamp(16px, 1.2vw, 2rem) !important;
+    }
+}

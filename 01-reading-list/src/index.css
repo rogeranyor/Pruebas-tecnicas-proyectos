@@ -1,0 +1,47 @@
+#root {
+    max-width: 90% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center !important;
+    /*background-color: #2d3748;*/
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+    margin-left: 5% !important;
+    margin-right: 5% !important;
+}
+
+body {
+
+    z-index: -1;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.1)), url(./assets/blured-bg.png);
+    /* backdrop-filter: blur(5px); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+}
+
+
+/* Estilos para la barra de desplazamiento en Chrome */
+::-webkit-scrollbar {
+    width: 0px;
+    /* Ancho de la barra */
+    height: 0px;
+    /* Altura de la barra */
+}
+
+/* Estilos para el pulgar de la barra de desplazamiento */
+::-webkit-scrollbar-thumb {
+    background-color: #BFBFBF;
+    /* Color del pulgar */
+    border-radius: 10px;
+    /* Bordes redondeados */
+}
+
+/* Estilos para el fondo de la barra de desplazamiento */
+::-webkit-scrollbar-track {
+    background-color: #F5F5F5;
+
+    /* Color del fondo */
+}
