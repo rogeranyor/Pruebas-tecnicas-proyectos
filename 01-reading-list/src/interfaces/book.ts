@@ -7,24 +7,24 @@ export interface Library {
 }
 
 export interface Book {
-    title:    string;
-    pages:    number;
-    genre:    string;
-    cover:    string;
+    title: string;
+    pages: number;
+    genre: string;
+    cover: string;
     synopsis: string;
-    year:     number;
-    ISBN:     string;
-    author:   Author;
+    year: number;
+    ISBN: string;
+    author: Author;
 }
 
 export interface Author {
-    name:       string;
+    name: string;
     otherBooks: string[];
 }
 export type Filters = {
     PAGES: number;
     GENRE: string;
-  };
+};
 
 export type BooksContextType = {
     filteredBooks: Book[];
@@ -35,4 +35,7 @@ export type BooksContextType = {
     genres: string[];
     selectedBook: Book | null;
     setSelectedBook: React.Dispatch<React.SetStateAction<Book | null>>;
-  };
+    booksSavedISBN : string[];
+    setBooksSavedISBN : React.Dispatch<React.SetStateAction<string[]>>;
+
+};

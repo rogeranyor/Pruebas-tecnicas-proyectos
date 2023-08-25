@@ -1,5 +1,5 @@
 import { Book } from "../interfaces/book";
-
+import React from "react";
 export function changeSelection() {
   document.getElementById('libros-disponibles')?.classList.toggle('active');
   document.getElementById('libros-guardados')?.classList.toggle('active');
@@ -26,14 +26,35 @@ export function changeSelection() {
 }
 
 
-export function handleStorageChange(event, setBooksSaved: React.Dispatch<React.SetStateAction<Book[]>>, setFilters: React.Dispatch<React.SetStateAction<{ PAGES: number, GENRE: string }>>, setSelectedBook: React.Dispatch<React.SetStateAction<Book | null>>) {
+export function handleStorageChange(event,
+  setBooksSaved: React.Dispatch<React.SetStateAction<Book[]>>,
+  setFilters: React.Dispatch<React.SetStateAction<{ PAGES: number, GENRE: string }>>,
+  setBooksSavedISBN: React.Dispatch<React.SetStateAction<string[]>>) {
   if (event.key === 'booksSaved') {
     setBooksSaved(JSON.parse(event.newValue || '[]'));
+    const booksSavedISBN = JSON.parse(event.newValue || '[]').map(book => book.ISBN);
+    setBooksSavedISBN(booksSavedISBN);
+
   }
   else if (event.key === 'filters') {
     setFilters(JSON.parse(event.newValue || '{"PAGES":2000,"GENRE":"Todos"}'));
   }
-  else if (event.key === 'selectedBook') {
-    setSelectedBook(JSON.parse(event.newValue || 'null'));
-  }
 };
+
+export function filterSavedBooks(AllBooks: { current: Book[] }, filters: { PAGES: number, GENRE: string }, booksSavedISBN: string[], ALL_FILTER: string) {
+  return AllBooks.current.filter((book) => {
+    return (
+      book.pages <= filters.PAGES &&
+      (book.genre === filters.GENRE || filters.GENRE === ALL_FILTER) && booksSavedISBN.some(savedBook => savedBook === book.ISBN)
+    );
+  })
+}
+
+export function filterAvailableBooks(AllBooks: { current: Book[] }, filters: { PAGES: number, GENRE: string }, booksSavedISBN: string[], ALL_FILTER: string) {
+  return AllBooks.current.filter((book) => {
+    return (
+      book.pages <= filters.PAGES &&
+      (book.genre === filters.GENRE || filters.GENRE === ALL_FILTER) && !booksSavedISBN.some(savedBook => savedBook === book.ISBN)
+    );
+  })
+}
