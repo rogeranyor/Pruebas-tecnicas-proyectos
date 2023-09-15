@@ -1,9 +1,22 @@
 import { Book } from "../interfaces/book";
 import React from "react";
-export function changeSelection() {
-  document.getElementById('libros-disponibles')?.classList.toggle('active');
-  document.getElementById('libros-guardados')?.classList.toggle('active');
 
+
+export function changeSelection(clicked: string) {
+
+  if (clicked === 'libros-disponibles' && document.getElementById('libros-disponibles')?.classList.contains('active')) return
+  if (clicked === 'libros-guardados' && document.getElementById('libros-guardados')?.classList.contains('active')) return
+
+  const librosDisponibles = document.getElementById('libros-disponibles')
+  const librosGuardados = document.getElementById('libros-guardados')
+
+
+  if (librosDisponibles && librosGuardados) {
+    librosDisponibles.classList.toggle('active');
+    librosGuardados.classList.toggle('active');
+  }
+
+ 
   const booksSavedElement = document.getElementById('booksSaved');
   const filteredBooks = document.getElementById('filteredBooks');
   const booksContainer = document.getElementById('books-container');
@@ -21,7 +34,6 @@ export function changeSelection() {
     }
 
   }
-
 
 }
 

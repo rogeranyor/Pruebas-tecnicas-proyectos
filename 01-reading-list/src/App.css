@@ -43,7 +43,6 @@
 
 
 .change-selection {
-  margin-block-start: 2%;
   background-color: transparent;
   border: none;
   color: white;
@@ -51,9 +50,19 @@
   font-weight: bold;
   cursor: pointer;
 }
-
+/* 
 .change-selection.active {
   border-bottom: #efeff0 3px solid;
+} */
+.bottomLine {
+  border-bottom: #efeff0 3px solid;
+  position: absolute;
+  width: var(--width);
+  top: var(--top);
+  left: var(--left);
+  transition: all 0.3s ease-in-out;
+  opacity: var(--opacity);
+  
 }
 
 @media screen and (max-width:862px) {
@@ -71,6 +80,7 @@
     border-bottom: 3px solid white;
     width: 100%;
   }
+
   .info-no-book {
     border-left: none;
     border-bottom: 3px solid white;

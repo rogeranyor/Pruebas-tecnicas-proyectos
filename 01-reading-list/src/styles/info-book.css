@@ -17,8 +17,27 @@
     border-left: 3px solid white;
     flex-direction: column;
     justify-content: center;
+}
 
+.info-book h2 {
+    margin-bottom: 40px;
+}
 
+@media screen and (min-width: 862px) {
+    .info-book h2 {
+        width: 50vw;
+        margin-bottom: 0px;
+    }
+}
+
+@media screen and (max-width: 862px) {
+    .section-cover {
+        margin-left: 0px !important;
+        row-gap: 20px;
+    }
+    .info-no-book h2 {
+        margin-left: 0px !important;
+    }
 }
 
 .description-book {
@@ -82,60 +101,27 @@
     display: flex;
     height: 80%;
     width: 100%;
-    flex-direction: row;
+    margin-left: 3vw;
+    flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
+}
+
+.info-book-img {
+    width: 15vw;
+    min-width: 250px;
 }
 
 .info-book-aside {
-    width: 20vw;
+    width: 100%;
     text-align: initial;
-    height: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between
 }
 
 @media screen and (max-width:1728px) {
     .grid-container {
         justify-content: center !important;
-
-    }
-
-    .info-book-aside {
-        height: 65% !important;
-        justify-content: space-evenly;
-
-    }
-
-    .description-book {
-        flex-basis: 0;
-        flex-grow: 0;
-    }
-
-    .section-cover {
-        height: 80% !important;
-    }
-
-    .info-book-text {
-        font-size: clamp(16px, 1.2vw, 2rem) !important;
-    }
-}
-
-@media screen and (max-width:1176px) {
-    .info-book-aside {
-        height: 65% !important;
-        justify-content: space-evenly;
-
-    }
-
-    .description-book {
-        flex-basis: 0;
-        flex-grow: 0;
-    }
-
-    .section-cover {
-        height: 55% !important;
-        flex-direction: column;
     }
 
     .info-book-text {
