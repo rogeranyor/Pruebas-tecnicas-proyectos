@@ -1,10 +1,10 @@
-import React, { useRef ,useContext} from 'react'
+import React, { useRef, useContext, useEffect } from 'react'
 import { changeSelection, generateBar, updateBar } from '../../helpers/helpers'
 import { booksProvider } from '../../context/bookscontext'
 
 function SelectorFilter() {
     const context = useContext(booksProvider);
-
+    const selectedBook = context?.selectedBook || null;
     const filteredBooks = context?.filteredBooks || [];
     const booksSaved = context?.booksSaved || [];
     const bottomLineRef = useRef<HTMLDivElement>(null)
@@ -21,6 +21,13 @@ function SelectorFilter() {
     window.addEventListener('resize', () => updateBar(librosDisponibles, librosGuardados, bottomLineRef.current))
 
     window.addEventListener('scroll', () => updateBar(librosDisponibles, librosGuardados, bottomLineRef.current))
+
+    useEffect(() => {
+        if (selectedBook) {
+            const { left, width, bottom } = librosDisponibles.getBoundingClientRect();
+            generateBar(left, width, bottom, bottomLineRef.current, true)
+        }
+    }, [selectedBook])
 
     librosDisponibles?.addEventListener('click', () => {
         const { left, width, bottom } = librosDisponibles.getBoundingClientRect();
