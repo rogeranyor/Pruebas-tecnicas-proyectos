@@ -23,10 +23,11 @@ function CardBook({ book }: { book: Book }) {
     return (
         <main key={book.ISBN} className="card-book">
             <div className='img-container'>
-                <img onClick={() => { setSelectedBook(book); goUp() }} className="img-cover" src={book.cover} alt={book.title} id={book.ISBN} />
+                <div onClick={() => { setSelectedBook(book); goUp() }} className="img-cover" style={{ backgroundImage: `url(${book.cover})` }} id={book.ISBN}> </div>
                 <div onClick={() => saveBook(book, booksSaved, setBooksSaved, setBooksISBN, booksSavedISBN)} className="save-icon">
                     {checkBookSaved(book.ISBN, booksSaved) ? <BsBookmarkCheckFill fontSize={"25px"} /> : <BsBookmark fontSize={"25px"} />}
                 </div>
+
             </div>
         </main>
     )
