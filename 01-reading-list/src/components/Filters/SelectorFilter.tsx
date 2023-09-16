@@ -24,7 +24,6 @@ function SelectorFilter() {
 
     useEffect(() => {
         if (selectedBook) {
-            const { left, width, bottom } = librosDisponibles.getBoundingClientRect();
             updateBar(librosDisponibles, librosGuardados, bottomLineRef.current)
         }
     }, [selectedBook])
