@@ -15,7 +15,7 @@ function CardBook({ book }: { book: Book }) {
 
     function goUp() {
         window.scrollTo({
-            top: 0,
+            top: -50,
             behavior: 'smooth'
         });
     }
