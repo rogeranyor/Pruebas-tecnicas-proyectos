@@ -16,11 +16,9 @@ export function changeSelection(clicked: string) {
     librosGuardados.classList.toggle('active');
   }
 
-
   const booksSavedElement = document.getElementById('booksSaved');
   const filteredBooks = document.getElementById('filteredBooks');
   const booksContainer = document.getElementById('books-container');
-
 
   if (booksSavedElement && filteredBooks && booksContainer) {
     if (booksContainer.classList.contains('slide-out')) {

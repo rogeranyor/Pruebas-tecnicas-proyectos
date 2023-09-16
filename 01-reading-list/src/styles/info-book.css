@@ -2,7 +2,7 @@
     display: flex;
     color: white;
     width: 50%;
-
+    min-height: 150px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -25,7 +25,7 @@
     .info-book h2 {
         width: 50vw;
     }
-    
+
 }
 
 @media screen and (max-width: 1147px) {
@@ -34,17 +34,17 @@
         margin-left: 0px !important;
         width: 100%;
     }
-    .info-book{
+
+    .info-book {
         height: 650px;
         justify-content: space-evenly;
     }
 }
 
-.description-book {
-    flex-basis: 0;
-    flex-grow: 0.9;
-}
 
+.info-book-text{
+    font-weight: 400;
+}
 
 
 .animated-text {
@@ -70,11 +70,11 @@
     .grid-container {
         justify-content: center !important;
     }
-    
+
     .animated-text {
         animation: fadeIn 0.5s ease-in !important;
     }
-    
+
 
     .animated-image {
         animation: fadeIn 0.5s ease-in !important;

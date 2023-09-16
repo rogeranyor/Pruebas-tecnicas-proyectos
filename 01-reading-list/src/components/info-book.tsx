@@ -4,20 +4,8 @@ import { booksProvider } from '../context/bookscontext'
 
 function infoBook() {
 
-    const [animate, setAnimate] = useState(false);
     const context = useContext(booksProvider);
     const selectedBook = context?.selectedBook || null;
-
-
-    useEffect(() => {
-        if (selectedBook) {
-            setAnimate(true);
-            const animationTimeout = setTimeout(() => {
-                setAnimate(false);
-            }, 500);
-            return () => clearTimeout(animationTimeout);
-        }
-    }, [selectedBook]);
 
 
     if (selectedBook === null) {
@@ -30,17 +18,17 @@ function infoBook() {
     return (
         <div className="info-book">
             <h2>{selectedBook.title}</h2>
-            <img className={`${animate ? 'animated-image info-book-img' : 'info-book-img'}`}
+            <img key={selectedBook.ISBN} className={'animated-image info-book-img'}
                 src={selectedBook.cover} alt={selectedBook.title} />
-            <aside className={`${animate ? 'animated-text' : ''}` + ' info-book-aside'}>
-                <h5 className='info-book-text' >Autor: {selectedBook.author.name}</h5>
+            <aside key={selectedBook.ISBN + "text"} className={'animated-text info-book-aside'}>
+                <h6 className='info-book-text' >Autor: {selectedBook.author.name}</h6>
                 <div className='description-book'>
-                    <h5 className='info-book-text'>Descripción:</h5>
-                    <h5 className='info-book-text'>{selectedBook.synopsis}</h5>
+                    <h6 className='info-book-text'>Descripción:</h6>
+                    <h6 className='info-book-text'>- {selectedBook.synopsis}</h6>
                 </div>
                 <section >
-                    <h5 className='info-book-text'>Género: {selectedBook.genre}</h5>
-                    <h5 className='info-book-text'>Número total de páginas: {selectedBook.pages}</h5>
+                    <h6 className='info-book-text'>Género: {selectedBook.genre}</h6>
+                    <h6 className='info-book-text'>Número total de páginas: {selectedBook.pages}</h6>
                 </section>
             </aside >
 
