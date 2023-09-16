@@ -72,12 +72,12 @@
     }
     
     .animated-text {
-        animation: fadeIn 0.5s ease-in;
+        animation: fadeIn 0.5s ease-in !important;
     }
     
 
     .animated-image {
-        animation: fadeIn 0.5s ease-in;
+        animation: fadeIn 0.5s ease-in !important;
     }
 
     .info-book-text {
