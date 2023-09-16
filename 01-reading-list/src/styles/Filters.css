@@ -23,13 +23,24 @@
     margin-block-start: 50px;
     text-align: initial;
     height: 150px;
+    min-width: 320px;
 }
 
-@media screen and (max-width: 830px) {
+.selector-filter{
+    display: flex;
+    gap: 15px;
+    justify-content: space-around;
+    margin-top: 10px;
+
+}
+
+
+@media screen and (max-width: 414px) {
     .filter-genre {
         margin-inline-start: 0px !important;
     }
 }
+
 
 @media screen and (max-width: 1520px) {
     .filter-genre {
@@ -39,14 +50,14 @@
 
 .bottomLine {
     border-bottom: #efeff0 3px solid;
-    position: fixed;
+    position: absolute;
     width: var(--width);
     top: var(--top);
     left: var(--left);
     transition: var(--transition);
     opacity: var(--opacity);
-    
-  }
+
+}
 
 .genre-image {
     height: 3vw;

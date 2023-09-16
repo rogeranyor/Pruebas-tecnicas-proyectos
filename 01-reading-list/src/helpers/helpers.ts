@@ -83,8 +83,9 @@ export function generateBar(left: number, width: number, bottom: number, current
   if (current === null) return
   if (transition) current.style.setProperty('--transition', `all 0.5s ease-in-out`)
   else current.style.setProperty('--transition', `none`)
-  current.style.setProperty('--left', `${left}px`)
-  current.style.setProperty('--top', `${bottom}px`)
+  const scrollTop = window.scrollY || document.documentElement.scrollTop;
+  current.style.setProperty('--left', `${left - window.innerWidth * 0.05}px`)
+  current.style.setProperty('--top', `${bottom + scrollTop}px`)
   current.style.setProperty('--width', `${width}px`)
   current.style.setProperty('--opacity', `1`)
 }

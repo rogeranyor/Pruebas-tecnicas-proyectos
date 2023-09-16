@@ -9,18 +9,20 @@ function SelectorFilter() {
     const booksSaved = context?.booksSaved || [];
     const bottomLineRef = useRef<HTMLDivElement>(null)
 
-    const librosDisponibles = document.getElementById('libros-disponibles') as HTMLElement
-    const librosGuardados = document.getElementById('libros-guardados') as HTMLElement
-
-    const initialPosition = librosDisponibles?.getBoundingClientRect()
-
-    if (bottomLineRef.current?.style.getPropertyValue('--opacity') !== '1' || bottomLineRef.current === null) {
-        generateBar(initialPosition?.left, initialPosition?.width, initialPosition?.bottom, bottomLineRef.current)
-    }
+    const librosDisponibles = document.getElementById('libros-disponibles') as HTMLButtonElement
+    const librosGuardados = document.getElementById('libros-guardados') as HTMLButtonElement
 
     window.addEventListener('resize', () => updateBar(librosDisponibles, librosGuardados, bottomLineRef.current))
+    
+    // generates the first bar on load
+    librosDisponibles?.dispatchEvent(new Event('dblclick'))
 
-    window.addEventListener('scroll', () => updateBar(librosDisponibles, librosGuardados, bottomLineRef.current))
+    librosDisponibles?.addEventListener('dblclick', () => {
+        if (bottomLineRef.current?.style.getPropertyValue('--opacity') !== '1' || bottomLineRef.current === null) {
+            const { left, width, bottom } = librosDisponibles.getBoundingClientRect();
+            generateBar(left, width, bottom, bottomLineRef.current)
+        }
+    })
 
     useEffect(() => {
         if (selectedBook) {
@@ -39,8 +41,10 @@ function SelectorFilter() {
         generateBar(left, width, bottom, bottomLineRef.current, true)
 
     })
+
+
     return (
-        <div style={{ display: "flex", gap: "15px", justifyContent: "space-around", marginTop: "10px" }}>
+        <div className='selector-filter' >
             <button onClick={() => changeSelection("libros-disponibles")} id='libros-disponibles' className="change-selection active">Libros disponibles: {filteredBooks.length}</button>
             <button onClick={() => changeSelection("libros-guardados")} id='libros-guardados' className="change-selection">Libros guardados: {booksSaved.length}</button>
             <div ref={bottomLineRef} className='bottomLine' id='bottom-line'></div>
