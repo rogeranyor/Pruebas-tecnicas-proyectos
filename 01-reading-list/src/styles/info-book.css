@@ -6,7 +6,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-left: 3px solid white;
 }
 
 
@@ -14,29 +13,30 @@
     display: flex;
     color: white;
     width: 50%;
-    border-left: 3px solid white;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
+    height: 90%;
+    margin-block: auto;
+    align-items: center;
 }
 
-.info-book h2 {
-    margin-bottom: 40px;
-}
 
-@media screen and (min-width: 862px) {
+@media screen and (min-width: 1147px) {
     .info-book h2 {
         width: 50vw;
-        margin-bottom: 0px;
     }
+    
 }
 
-@media screen and (max-width: 862px) {
-    .section-cover {
+@media screen and (max-width: 1147px) {
+
+    .info-no-book {
         margin-left: 0px !important;
-        row-gap: 20px;
+        width: 100%;
     }
-    .info-no-book h2 {
-        margin-left: 0px !important;
+    .info-book{
+        height: 650px;
+        justify-content: space-evenly;
     }
 }
 
@@ -44,6 +44,47 @@
     flex-basis: 0;
     flex-grow: 0.9;
 }
+
+
+
+.animated-text {
+    animation: slideUP 0.5s ease-in;
+}
+
+
+
+.info-book-img {
+    width: 15vw;
+    min-width: 250px;
+}
+
+.info-book-aside {
+    width: 90%;
+    text-align: initial;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+@media screen and (max-width:1728px) {
+    .grid-container {
+        justify-content: center !important;
+    }
+    
+    .animated-text {
+        animation: fadeIn 0.5s ease-in;
+    }
+    
+
+    .animated-image {
+        animation: fadeIn 0.5s ease-in;
+    }
+
+    .info-book-text {
+        font-size: clamp(16px, 1.2vw, 2rem) !important;
+    }
+}
+
 
 @keyframes slideAndScale {
     0% {
@@ -93,38 +134,12 @@
     }
 }
 
-.animated-text {
-    animation: slideUP 0.5s ease-in;
-}
-
-.section-cover {
-    display: flex;
-    height: 80%;
-    width: 100%;
-    margin-left: 3vw;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-.info-book-img {
-    width: 15vw;
-    min-width: 250px;
-}
-
-.info-book-aside {
-    width: 100%;
-    text-align: initial;
-    display: flex;
-    flex-direction: column;
-}
-
-@media screen and (max-width:1728px) {
-    .grid-container {
-        justify-content: center !important;
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
     }
 
-    .info-book-text {
-        font-size: clamp(16px, 1.2vw, 2rem) !important;
+    100% {
+        opacity: 1;
     }
 }

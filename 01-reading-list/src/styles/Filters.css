@@ -21,7 +21,8 @@
 .filter-genre {
     margin: 5px;
     margin-block-start: 50px;
-    text-align: initial
+    text-align: initial;
+    height: 150px;
 }
 
 @media screen and (max-width: 830px) {
@@ -35,6 +36,17 @@
         margin-block-start: 0px;
     }
 }
+
+.bottomLine {
+    border-bottom: #efeff0 3px solid;
+    position: fixed;
+    width: var(--width);
+    top: var(--top);
+    left: var(--left);
+    transition: var(--transition);
+    opacity: var(--opacity);
+    
+  }
 
 .genre-image {
     height: 3vw;

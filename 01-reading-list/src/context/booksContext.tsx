@@ -4,9 +4,7 @@ import { Book, BooksContextType } from '../interfaces/book'
 import { getGenres, getBooksSaved } from '../services/bookLogic'
 import { ALL_FILTER } from '../consts/filters'
 import { handleStorageChange, filterSavedBooks, filterAvailableBooks } from '../helpers/helpers'
-
 export const booksProvider = createContext<BooksContextType | null>(null);
-
 
 export function BooksProvider({ children }) {
 
@@ -15,23 +13,28 @@ export function BooksProvider({ children }) {
     const [filteredBooks, setFilteredBooks] = useState<Book[]>([]);
     const [booksSaved, setBooksSaved] = useState<Book[]>([]);
     const [booksSavedISBN, setBooksSavedISBN] = useState<string[]>([]);
-    const [filters, setFilters] = useState<{ PAGES: number, GENRE: string }>({ PAGES: 2000, GENRE: 'Todos' });
+    const [filters, setFilters] = useState<{ PAGES: number, GENRE: string }>();
     const [genres, setGenres] = useState<string[]>([]);
     const [selectedBook, setSelectedBook] = useState<Book | null>(null);
+    const [maxPages, setMaxPages] = useState<number>();
 
     useEffect(() => {
         async function getBooks() {
             const books: Book[] = await useGetBooks();
             const genres: string[] = getGenres(books);
             setGenres(genres);
+
             setFilteredBooks(books);
 
             AllBooks.current = books;
-            
-            const { saved, savedFilters, booksISBN } = getBooksSaved()
 
+            const { saved, booksISBN } = getBooksSaved()
+
+            const maxPages = books.reduce((acc, book) => book.pages > acc ? book.pages : acc, 0)
+
+            setMaxPages(maxPages)
+            setFilters({ PAGES: maxPages, GENRE: ALL_FILTER })
             setBooksSaved(saved)
-            setFilters(savedFilters)
             setBooksSavedISBN(booksISBN)
         }
         getBooks();
@@ -46,15 +49,15 @@ export function BooksProvider({ children }) {
     }, []);
 
     useEffect(() => {
-        const filteredBooks = filterAvailableBooks(AllBooks, filters, booksSavedISBN, ALL_FILTER)
+        if (filters === undefined) return
+        const filteredBooks = filterAvailableBooks(AllBooks.current, filters, booksSavedISBN)
         setFilteredBooks(filteredBooks)
-        const booksSaved = filterSavedBooks(AllBooks, filters, booksSavedISBN, ALL_FILTER)
+        const booksSaved = filterSavedBooks(AllBooks.current, filters, booksSavedISBN)
         setBooksSaved(booksSaved)
     }, [filters, booksSavedISBN]);
 
+   
 
-
-    ;
 
     return (
         <booksProvider.Provider
@@ -68,10 +71,13 @@ export function BooksProvider({ children }) {
                 selectedBook,
                 setSelectedBook,
                 booksSavedISBN,
-                setBooksSavedISBN
+                setBooksSavedISBN,
+                maxPages
             }}
         >
             {children}
         </booksProvider.Provider>
     )
 }
+
+export default BooksProvider

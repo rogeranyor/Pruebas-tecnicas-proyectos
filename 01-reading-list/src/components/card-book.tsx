@@ -13,12 +13,17 @@ function CardBook({ book }: { book: Book }) {
     const setBooksISBN = context?.setBooksSavedISBN || (() => { });
     const booksSavedISBN = context?.booksSavedISBN || [];
 
-
+    function goUp() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
 
     return (
         <main key={book.ISBN} className="card-book">
             <div className='img-container'>
-                <img onClick={() => setSelectedBook(book)} className="img-cover" src={book.cover} alt={book.title} id={book.ISBN} />
+                <img onClick={() => { setSelectedBook(book); goUp() }} className="img-cover" src={book.cover} alt={book.title} id={book.ISBN} />
                 <div onClick={() => saveBook(book, booksSaved, setBooksSaved, setBooksISBN, booksSavedISBN)} className="save-icon">
                     {checkBookSaved(book.ISBN, booksSaved) ? <BsBookmarkCheckFill fontSize={"25px"} /> : <BsBookmark fontSize={"25px"} />}
                 </div>

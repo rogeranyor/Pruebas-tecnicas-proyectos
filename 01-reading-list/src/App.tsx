@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from './components/header'
-import Filters from './components/Filters'
+import Filters from './components/Filters/Filters'
 import InfoBook from './components/info-book'
 import GridLibrosDisponibles from './components/GridLibrosDisponibles'
 import GridLibrosGuardados from './components/GridLibrosGuardados'

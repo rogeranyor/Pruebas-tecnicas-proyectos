@@ -30,12 +30,13 @@ export type BooksContextType = {
     filteredBooks: Book[];
     booksSaved: Book[];
     setBooksSaved: React.Dispatch<React.SetStateAction<Book[]>>;
-    filters: Filters;
-    setFilters: React.Dispatch<React.SetStateAction<Filters>>;
+    filters: Filters | undefined;
+    setFilters: React.Dispatch<React.SetStateAction<Filters | undefined>>;
     genres: string[];
     selectedBook: Book | null;
     setSelectedBook: React.Dispatch<React.SetStateAction<Book | null>>;
-    booksSavedISBN : string[];
-    setBooksSavedISBN : React.Dispatch<React.SetStateAction<string[]>>;
+    booksSavedISBN: string[];
+    setBooksSavedISBN: React.Dispatch<React.SetStateAction<string[]>>;
+    maxPages: number | undefined;
 
 };
