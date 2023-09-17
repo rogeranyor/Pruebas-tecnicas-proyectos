@@ -11,7 +11,7 @@ function GenreFilter() {
     const genres = context?.genres || [];
     return (
         <section className='filter-genre'>
-            <h4>Filtrar por género</h4>
+            <h5>Filtrar por género</h5>
             {genres?.map((genre) => {
                 if (genre === ALL_FILTER) {
                     return null

@@ -11,14 +11,14 @@ function pagesFilter() {
 
     return (
         <section style={{ margin: "5px", width: "300px", textAlign: "initial" }} >
-            <h4>Filtrar por páginas</h4>
+            <h5>Filtrar por páginas</h5>
             <div style={{ display: "flex", marginTop: "40px" }}>
                 <input type='range' min='0' max={maxPagesContext} style={{ width: "175px" }}
                     onChange={(e) => { updateFilters(setFilters, filters, PAGES, parseInt(e.target.value)) }}
                     defaultValue={maxPagesContext}
                 >
                 </input>
-                <p style={{ color: "white", margin: "0", marginLeft: "10px", width: "100px" }}>Máximo: {filters?.PAGES}</p>
+                <p style={{ color: "white", margin: "0", marginLeft: "10px", width: "110px" }}>Máximo: {filters?.PAGES}</p>
             </div>
         </section>
     )

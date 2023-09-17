@@ -5,11 +5,13 @@
   height: calc(100dvh - 100px);
 
 }
-
+:root {
+  --size-cards: 180px;
+}
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 250px));
-  grid-template-rows: repeat(auto-fill, minmax(250px, 250px));
+  grid-template-columns: repeat(auto-fill, var(--size-cards));
+  grid-template-rows: repeat(auto-fill, var(--size-cards));
 
   grid-gap: 1rem;
   padding: 1rem;
