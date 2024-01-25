@@ -2,12 +2,9 @@
 import type { IProduct, ProductDBResponse, ProductExtended, ProductsApiResponse } from '../../../../types/Product.ts'
 import { getAllProducts } from '../../services/obtainItems'
 
-
-export async function GET(request: Request, response: Response): Promise<Response> {
+export async function getServerSideProps({ params }: { params: { id: string } }) {
     try {
-        const { href } = new URL(request.url);
-
-        const id = parseInt(href.split('/')?.pop() || '');
+        const id = parseInt(params.id);
 
         const rest = await getAllProducts()
 
@@ -15,11 +12,17 @@ export async function GET(request: Request, response: Response): Promise<Respons
         rest.products = rest.products.filter((product: IProduct) => product.id === id);
         rest.total = rest.products.length;
 
-        return Response.json(rest.products[0]);
-
+        return {
+            props: {
+                product: rest.products[0],
+            },
+        };
     } catch (err: any) {
-        return Response.json({ "err": err.message });
+        return {
+            props: {
+                error: err.message,
+            },
+        };
     }
 }
-
 
