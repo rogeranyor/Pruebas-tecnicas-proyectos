@@ -2,7 +2,7 @@
 import type { IProduct, ProductDBResponse, ProductExtended, ProductsApiResponse } from '../../../../types/Product.ts'
 import { getAllProducts } from '../../services/obtainItems'
 
-export async function getServerSideProps({ params }: { params: { id: string } }) {
+export async function GET({ params }: { params: { id: string } }) {
     try {
         const id = parseInt(params.id);
 
