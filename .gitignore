@@ -1,2 +1,5 @@
 
 02-bazar-universal/.env
+
+# Local Netlify folder
+.netlify

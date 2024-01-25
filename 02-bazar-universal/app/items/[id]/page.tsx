@@ -11,7 +11,7 @@ export default function Item() {
     const id = parseInt(document.location.href.split('/')?.pop() || '');
 
     useEffect(() => {
-        fetch(process.env.REACT_APP_BE_URL + `/api/items/${id}`)
+        fetch("/api/items/" + id)
             .then(response => response.json())
             .then(data => {
                 const product = data as ProductExtended
