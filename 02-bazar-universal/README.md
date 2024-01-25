@@ -16,6 +16,21 @@ La aplicación debe constar de servidor y cliente. El servidor debe exponer un A
 - [x] Haz que el diseño sea responsive.
 - [x] Integra la paginación tanto en la API como en la web.
 
+![image](https://github.com/rogeranyor/Pruebas-tecnicas-proyectos/assets/64661531/1ab0485c-e723-4e51-bb5c-250ebf13f25d)
+![image](https://github.com/rogeranyor/Pruebas-tecnicas-proyectos/assets/64661531/2b630201-3714-4914-987b-27660964bdab)
+![image](https://github.com/rogeranyor/Pruebas-tecnicas-proyectos/assets/64661531/1013a72d-fade-47ea-bad8-161d4ef1b712)
+![image](https://github.com/rogeranyor/Pruebas-tecnicas-proyectos/assets/64661531/040c80b8-12e8-4201-a12b-a5dda6aa7940)
+
+## Mobile
+
+![image]()
+
+<img src="https://github.com/rogeranyor/Pruebas-tecnicas-proyectos/assets/64661531/2d6193b6-7295-41f1-bcc5-08cafa792b47" width="290" height ="627">
+<img src="https://github.com/rogeranyor/Pruebas-tecnicas-proyectos/assets/64661531/40c1a7f1-919e-47a3-b933-31c4ee1fcca6" width="290" height ="627">
+<img src="https://github.com/rogeranyor/Pruebas-tecnicas-proyectos/assets/64661531/2765d718-43b4-4cc1-b364-f69996692aa9" width="290" height ="627">
+<img src="https://github.com/rogeranyor/Pruebas-tecnicas-proyectos/assets/64661531/23169b42-f855-4a61-be37-1acda77ff42f" width="290" height ="627">
+
+
 ## Contexto
 
 Somos un bazar con todo tipo de productos. Queremos crear nuestra app web. Por ahora **nuestro mercado va a ser el móvil**.
