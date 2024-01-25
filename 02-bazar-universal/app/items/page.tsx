@@ -23,7 +23,7 @@ export default function Item() {
 
 
     return (
-        <div className="flex flex-col gap-y-5 w-full xl:w-5/6 mx-auto">
+        <div className="flex flex-col  gap-y-5 w-full xl:w-5/6 mx-auto">
             {
                 loading ?
                     <div className="w-full h-full flex justify-center items-center">
@@ -31,11 +31,11 @@ export default function Item() {
                     </div>
                     :
                     <div>
-                        <section className="flex gap-10 sm:px-5 pb-10 justify-between flex-wrap ">
+                        <section className="flex gap-10 sm:px-5 pb-10 justify-between  flex-wrap ">
                             <h1 className="text-2xl font-bold   text-white">Search results for: {search}</h1>
                             <h2 className="text-2xl font-bold  text-white">Total: {products?.total}</h2>
                         </section>
-                        <div className='grid grid-cols-[repeat(auto-fit,minmax(450px,1fr))] gap-y-5 sm:gap-10'>
+                        <div className='grid grid-cols-[repeat(auto-fit,minmax(450px,1fr))] justify-items-center gap-y-5 sm:gap-10'>
                             {products?.products?.map(CardProduct)}
                         </div>
                     </div>

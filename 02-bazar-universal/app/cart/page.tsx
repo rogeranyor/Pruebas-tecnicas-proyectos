@@ -7,10 +7,10 @@ import { CartButton, HeartButton } from "../components/Buttons"
 export default function CartPage() {
     const context = useContext(cartContext)
     return (
-        <div className="text-white px-2 sm:px-10">
+        <div className="text-white px-2 sm:px-10 mx-auto">
             <h1 className="text-4xl pb-5 font-semibold">Cart</h1>
-            <div className="flex flex-col w-full gap-5 ">
-                <section className="flex gap-y-5 sm:gap-10 flex-wrap ">
+            <div className="flex flex-col items-center w-full gap-5 ">
+                <section className="flex gap-y-5 sm:gap-10 justify-center flex-wrap  ">
                     {context.cart.map((item: ProductExtended) => {
                         return (
                             <div key={item.id} className="flex gap-x-5 w-[400px] bg-persian-blue-950 bg-opacity-70 p-5 rounded-lg">
@@ -27,8 +27,8 @@ export default function CartPage() {
                     })}
                     {context.cart.length === 0 && <h1 className="text-4xl px-10 pb-10 font-semibold">Cart is empty</h1>}
                 </section>
-                <h1 className="text-4xl font-semibold">Favorites</h1>
-                <section className="flex gap-y-5 sm:gap-10 flex-wrap">
+                <h1 className="text-4xl font-semibold self-start">Favorites</h1>
+                <section className="flex w-full gap-y-5 sm:gap-10 justify-center flex-wrap">
                     {context.favorites.map((item: ProductExtended) => {
                         return (
                             <div key={item.id} className="flex gap-x-5 w-[400px] max-w-[95vw] bg-persian-blue-950 bg-opacity-70 p-5 rounded-lg">
