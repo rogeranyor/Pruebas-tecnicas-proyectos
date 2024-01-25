@@ -1,7 +1,7 @@
 // api/items.js
 import type { IProduct, ProductDBResponse, ProductsApiResponse } from '../../../types/Product.ts'
 import { getAllProducts } from '../services/obtainItems'
-
+export const dynamic = 'force-dynamic'
 
 export async function GET(request: Request, response: Response): Promise<Response> {
     try {
