@@ -12,7 +12,7 @@ export default function Item() {
     const [products, setProducts] = useState<ProductDBResponse>({ products: [], total: 0 })
     const [loading, setLoading] = useState(true)
     useEffect(() => {
-        fetch(`http://localhost:3000/api/items?q=${search}`)
+        fetch(process.env.REACT_APP_BE_URL + `/api/items?q=${search}`)
             .then(response => response.json())
             .then(data => {
                 const products = data as ProductDBResponse
