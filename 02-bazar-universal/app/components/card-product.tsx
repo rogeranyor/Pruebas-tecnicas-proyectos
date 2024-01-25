@@ -4,7 +4,7 @@ import { CartButton, HeartButton } from "./Buttons";
 export default function CardProduct(item: ProductExtended) {
     return (
         <a href={`/items/${item.id}`} key={item.id}
-            className="flex  justify-between w-[450px] max-w-[90vw] px-3 py-3 mx-auto border border-solid border-transparent
+            className="flex  justify-between w-[450px] max-w-[90vw] px-3 py-3  border border-solid border-transparent
             hover:border hover:border-yellow-orange-50 hover:border-solid duration-200 rounded-lg gap-x-7 
              bg-persian-blue-950 bg-opacity-70 ">
             <img className="rounded-full my-auto w-40 h-40 object-cover" src={item.thumbnail} alt={item.title + " photo"} />
