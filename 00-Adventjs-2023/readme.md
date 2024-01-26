@@ -1,4 +1,6 @@
 # 🌟 | Advent JS 2023
+## Retos de programación navideños creados por midudev.
+ 
  IMG                                                                                               | ##  | Nombre del reto                                                                  | Dificultad[^1] | Carpetas                                                                                                                                               
 | ------------------------------------------------------------------------------------------------- | :-: | -------------------------------------------------------------------------------- | -------------- | ----------------------------------------------------------------------------------- 
 | <img src="https://adventjs.dev/challenges-2023/1.png" width="50" style="object-fit: contain;" />  | 01  | [🎁 ¡Primer regalo repetido!](https://adventjs.dev/es/challenges/2023/1)         | 🟢             | [Ver](https://github.com/rogeranyor/Pruebas-tecnicas-proyectos/tree/main/00-Adventjs-2023/Reto%20%2301%20%F0%9F%8E%81%20%C2%A1Primer%20regalo%20repetido!)  
