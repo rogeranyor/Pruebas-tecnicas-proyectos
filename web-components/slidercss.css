@@ -1,0 +1,65 @@
+   body {
+       height: 100%;
+       width: 100%;
+       background-color: #ccc;
+       display: flex;
+       flex-direction: row;
+       justify-content: center;
+       align-items: center;
+
+   }
+
+   slider {
+       background-color: antiquewhite;
+       width: 1200px;
+       height: 800px;
+       border-radius: 20px;
+       display: flex;
+       position: relative;
+   }
+
+   slides {
+       position: absolute;
+       border-radius: 20px;
+       top: 50%;
+       transform: translateY(-50%);
+       transition: 0.5s;
+       background-repeat: no-repeat;
+       background-position: center;
+       background-size: cover;
+       width: 20%;
+       height: 50%;
+       left: calc(-60% - 15px);
+
+   }
+
+   slider slides:nth-child(1),
+   slider slides:nth-child(2) {
+       position: absolute;
+       top: 0;
+       left: 0;
+       height: 100%;
+       width: 100%;
+       transform: translateY(0);
+   }
+
+   slider slides:nth-child(3) {
+       left: calc(-20% - 5px);
+   }
+
+   slider slides:nth-child(4) {
+       left: calc(-40% - 10px);
+   }
+
+   button {
+       padding: 10px 20px;
+       border-radius: 20px;
+       border: none;
+       margin-top: 10px;
+       cursor: pointer;
+   }
+
+   button:hover {
+       scale: 1.05;
+       transition: 0.2s;
+   }
