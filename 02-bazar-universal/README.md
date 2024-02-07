@@ -14,7 +14,7 @@ La aplicación debe constar de servidor y cliente. El servidor debe exponer un A
 
 - [x] Implementa la funcionalidad de carrito de la compra.
 - [x] Haz que el diseño sea responsive.
-- [x] Integra la paginación tanto en la API como en la web.
+- [ ] Integra la paginación tanto en la API como en la web.
 
 ![image](https://github.com/rogeranyor/Pruebas-tecnicas-proyectos/assets/64661531/1ab0485c-e723-4e51-bb5c-250ebf13f25d)
 ![image](https://github.com/rogeranyor/Pruebas-tecnicas-proyectos/assets/64661531/2b630201-3714-4914-987b-27660964bdab)
